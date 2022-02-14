@@ -6,11 +6,23 @@ import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
+import { createTheme, ThemeProvider } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#c69dd2'
+    }
+  }
+})
+
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={ store }>
+      <ThemeProvider theme={theme}>
       <App />
+      </ThemeProvider>
     </Provider>
   </BrowserRouter>,
   document.getElementById('root'),
